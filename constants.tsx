@@ -11,7 +11,7 @@ export const CLIENTS: Client[] = [
     id: '1',
     name: 'Leuart',
     logo: '/clients/leuart/logo_variants/1.png',
-    coverImage: '/clients/leuart/cover.png',
+    coverImage: '/clients/leuart/cover.jpg',
     industry: 'Architectural Design',
     description: 'Four geometric planes come together to create a refined dimensional form for modern interiors.',
 
@@ -21,10 +21,10 @@ export const CLIENTS: Client[] = [
     logoConstruction: '/clients/leuart/logo_construction/construction.jpg',
 
     mockups: [
-      '/clients/leuart/mockups/1.png',
-      '/clients/leuart/mockups/2.png',
-      '/clients/leuart/mockups/3.png',
-      '/clients/leuart/mockups/4.png'
+      '/clients/leuart/mockups/1.jpg',
+      '/clients/leuart/mockups/2.jpg',
+      '/clients/leuart/mockups/3.jpg',
+      '/clients/leuart/mockups/4.jpg'
     ],
     colorPaletteImage: '/clients/leuart/color_palette/palette.png'
   },
@@ -33,7 +33,7 @@ export const CLIENTS: Client[] = [
     id: '2',
     name: 'Studio adis',
     logo: '/clients/adis/logo_variants/1.png',
-    coverImage: '/clients/adis/cover.png',
+    coverImage: '/clients/adis/cover.jpg',
     industry: 'Architecture Firm',
     description: 'A clean architectural identity shaped around space, structure, and refined modern living.',
 
@@ -43,10 +43,10 @@ export const CLIENTS: Client[] = [
     logoConstruction: '/clients/adis/logo_construction/construction.jpg',
 
     mockups: [
-      '/clients/adis/mockups/1.png',
-      '/clients/adis/mockups/2.png',
-      '/clients/adis/mockups/3.png',
-      '/clients/adis/mockups/4.png'
+      '/clients/adis/mockups/1.jpg',
+      '/clients/adis/mockups/2.jpg',
+      '/clients/adis/mockups/3.jpg',
+      '/clients/adis/mockups/4.jpg'
     ],
     colorPaletteImage: '/clients/adis/color_palette/palette.png'
   }

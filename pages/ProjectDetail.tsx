@@ -1,8 +1,34 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, type Variants } from 'motion/react';
 import { CLIENTS } from '../constants';
+
+type FadeImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
+  wrapperClassName: string;
+};
+
+const FadeImage: React.FC<FadeImageProps> = ({ wrapperClassName, className = '', onLoad, ...props }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div className={`relative overflow-hidden bg-[#071026] ${wrapperClassName}`}>
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.06] via-white/[0.02] to-transparent animate-pulse" />
+      )}
+      <div className="absolute inset-0 bg-grid-white/[0.02] pointer-events-none z-10"></div>
+      <img
+        {...props}
+        onLoad={(event) => {
+          setIsLoaded(true);
+          onLoad?.(event);
+        }}
+        decoding="async"
+        className={`${className} ${isLoaded ? 'opacity-80' : 'opacity-0'} group-hover:opacity-100 transition-[opacity,transform] duration-700 ease-out`}
+      />
+    </div>
+  );
+};
 
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -115,15 +141,14 @@ const ProjectDetail: React.FC = () => {
             <motion.div variants={itemVariants} className="flex flex-col gap-8">
               <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-[#00ff88]">{sectionLabels.colorPalette}</h2>
               
-              <div className="glass-card rounded-none w-full relative group overflow-hidden mb-6">
-                <div className="absolute inset-0 bg-grid-white/[0.02] pointer-events-none"></div>
-                <img 
+              <FadeImage
+                wrapperClassName="glass-card rounded-none w-full group mb-6 aspect-video"
+                loading="lazy"
                   src={client.colorPaletteImage} 
                   alt="Color Palette" 
-                  className="w-full h-auto object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" 
+                className="w-full h-full object-contain p-4"
                   referrerPolicy="no-referrer"
                 />
-              </div>
             </motion.div>
           )}
         </motion.div>
@@ -142,15 +167,15 @@ const ProjectDetail: React.FC = () => {
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {client.mockups.map((mockup, idx) => (
-                <div key={idx} className={`glass-card rounded-none overflow-hidden relative group ${idx === 0 && client.mockups!.length > 2 ? 'md:col-span-2 aspect-video' : 'aspect-square'}`}>
-                  <div className="absolute inset-0 bg-grid-white/[0.02] pointer-events-none"></div>
-                  <img 
+                <FadeImage
+                  key={idx}
+                  wrapperClassName={`glass-card rounded-none group ${idx === 0 && client.mockups!.length > 2 ? 'md:col-span-2 aspect-video' : 'aspect-square'}`}
+                  loading={idx < 2 ? 'eager' : 'lazy'}
                     src={mockup} 
                     alt={`Mockup ${idx + 1}`} 
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105" 
+                  className="w-full h-full object-cover group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
-                </div>
               ))}
             </div>
           </motion.div>
@@ -168,15 +193,14 @@ const ProjectDetail: React.FC = () => {
             <div className="flex items-end justify-between mb-12">
               <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-[#00ff88]">{sectionLabels.logoConstruction}</h2>
             </div>
-            <div className="glass-card rounded-none overflow-hidden aspect-video relative group">
-              <div className="absolute inset-0 bg-grid-white/[0.02] pointer-events-none"></div>
-              <img 
+            <FadeImage
+              wrapperClassName="glass-card rounded-none aspect-video group"
+              loading="lazy"
                 src={client.logoConstruction} 
                 alt="Logo Construction" 
-                className="w-full h-full object-contain p-4 md:p-8 opacity-80 group-hover:opacity-100 transition-opacity duration-700" 
+              className="w-full h-full object-contain p-4 md:p-8"
                 referrerPolicy="no-referrer"
               />
-            </div>
           </motion.div>
         )}
 
