@@ -16,7 +16,7 @@ import { TEAM_MEMBERS } from '../constants';
 
 const About: React.FC = () => {
   return (
-    <div className="pt-32 pb-20 relative">
+    <div className="pt-64 md:pt-32 pb-20 relative">
       {/* Immersive Background Gradients */}
       <div className="absolute top-0 right-0 w-full h-[700px] bg-gradient-to-bl from-emerald-500/10 to-transparent -z-10 pointer-events-none"></div>
       <div className="absolute top-[400px] left-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>

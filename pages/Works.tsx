@@ -8,7 +8,7 @@ const services = ['Brand Strategy', 'Visual Identity', 'Brand Applications'];
 const Works: React.FC = () => {
   return (
     <div className="bg-[#050a1b] min-h-screen text-white">
-      <section className="pt-52 md:pt-64 pb-14 md:pb-20">
+      <section className="pt-64 md:pt-64 pb-14 md:pb-20">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -84,7 +84,7 @@ const ProjectDetail: React.FC = () => {
 
   return (
     <div className="bg-[#050a1b] min-h-screen text-white">
-      <section className="pt-52 md:pt-64 pb-16 border-b border-white/10">
+      <section className="pt-64 md:pt-64 pb-16 border-b border-white/10">
         <div className="container mx-auto px-6">
           <Link to="/works" className="inline-flex items-center gap-2 text-white/45 hover:text-[#00ff88] font-bold text-xs uppercase tracking-[0.35em] mb-14 transition-colors">
             <span>&larr;</span> Work
