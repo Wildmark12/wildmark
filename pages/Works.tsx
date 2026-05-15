@@ -1,77 +1,100 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { CLIENTS } from '../constants';
-// import { CLIENTS, IG_STORIES } from '../constants';
-// import AutoSlider from '../components/AutoSlider';
+
+const services = ['Brand Strategy', 'Visual Identity', 'Brand Applications'];
 
 const Works: React.FC = () => {
-  // const storyCards = IG_STORIES.map(story => (
-  //   <div key={story.id} className="w-[280px] h-[500px] flex-shrink-0 group relative cursor-pointer">
-  //     <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-transparent group-hover:border-[#00ff88] transition-all duration-300">
-  //       <img src={story.imageUrl} alt={story.clientName} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
-  //       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-  //         <p className="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1">Story Creation</p>
-  //         <h4 className="text-lg font-bold">{story.clientName}</h4>
-  //       </div>
-  //     </div>
-  //   </div>
-  // ));
-
   return (
-    <div className="pt-32 pb-20 relative">
-      {/* Background gradient wash */}
-      <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-emerald-500/10 to-transparent -z-10 pointer-events-none"></div>
-      
-      <div className="container mx-auto px-6 mb-20 relative z-10">
-        <h1 className="text-6xl md:text-8xl font-bold chrome-text uppercase mb-6">Our <br /><span className="text-[#00ff88]">Creations.</span></h1>
-        <p className="text-gray-400 text-xl max-w-2xl">
-          Exploring the boundaries of digital aesthetics through branding and social storytelling.
-        </p>
-      </div>
-
-      {/* Section 1: Branding */}
-      <section className="container mx-auto px-6 mb-40 relative z-10">
-        <div className="flex items-end justify-between mb-12 border-b border-white/10 pb-6">
-          <h2 className="text-3xl font-bold uppercase tracking-tighter">Branding</h2>
-          <span className="text-gray-500 font-bold text-sm tracking-widest uppercase">{CLIENTS.length} PROJECTS</span>
+    <div className="bg-[#050a1b] min-h-screen text-white">
+      <section className="pt-52 md:pt-64 pb-14 md:pb-20">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-6xl"
+          >
+            <h1 className="text-[19vw] md:text-[13vw] lg:text-[10rem] font-black uppercase leading-[0.78] tracking-tight mb-10">
+              Our Work
+            </h1>
+            <p className="text-white/70 text-3xl md:text-5xl lg:text-6xl leading-[1.05] font-light max-w-5xl">
+              We partner with ambitious brands to build identities, campaigns and visual systems that move with culture.
+            </p>
+          </motion.div>
         </div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {CLIENTS.map(client => (
-            <Link to={`/works/${client.id}`} key={client.id} className="group">
-              <div 
-                className="glass-card rounded-none overflow-hidden p-6 transition-all duration-500 hover:border-[#00ff88]/50 flex flex-col items-center justify-center aspect-square text-center relative bg-[#050a1b]"
+      </section>
+
+      <section className="px-2 md:px-3 pb-3">
+        <div className="grid lg:grid-cols-12 gap-2 md:gap-3 items-start">
+          {CLIENTS.map((client, idx) => {
+            const image = client.mockups?.[idx % Math.max(client.mockups.length, 1)] ?? client.coverImage;
+            const isFeature = idx % 3 === 0;
+            const placement = isFeature
+              ? 'lg:col-span-7'
+              : idx % 3 === 1
+                ? 'lg:col-span-5 lg:mt-32'
+                : 'lg:col-span-6 lg:col-start-4';
+
+            return (
+              <motion.article
+                key={client.id}
+                initial={{ opacity: 0, y: 34 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-120px" }}
+                transition={{ duration: 0.75, delay: idx * 0.06 }}
+                className={`group ${placement}`}
               >
-                {client.coverImage && (
-                  <img src={client.coverImage} alt={client.name} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                )}
-                {/* Overlay to reduce intensity and make text clear */}
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none"></div>
-                <h3 className="text-xl font-semibold uppercase tracking-[0.3em] text-white z-10 group-hover:scale-110 transition-transform duration-500 relative">{client.name}</h3>
-              </div>
-            </Link>
-          ))}
+                <Link to={`/works/${client.id}`} className="block">
+                  <div className={`relative overflow-hidden bg-[#071026] ${isFeature ? 'aspect-[5/4]' : 'aspect-[4/5]'}`}>
+                    {image && (
+                      <img
+                        src={image}
+                        alt={client.name}
+                        loading={idx === 0 ? 'eager' : 'lazy'}
+                        decoding="async"
+                        className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-[1.03]"
+                      />
+                    )}
+                  </div>
+
+                  <div className="grid md:grid-cols-[minmax(0,1fr)_220px] gap-5 md:gap-8 pt-5 md:pt-6 pb-14 md:pb-20">
+                    <div>
+                      <h2 className="text-4xl md:text-6xl font-black uppercase leading-[0.86] tracking-tight mb-4 group-hover:text-[#00ff88] transition-colors">
+                        {client.name}
+                      </h2>
+                      <p className="text-white/65 text-lg md:text-xl leading-snug max-w-2xl">
+                        {client.description}
+                      </p>
+                    </div>
+
+                    <div className="text-[10px] font-black uppercase tracking-[0.28em] text-white/45 space-y-5">
+                      <div>
+                        <p className="text-white/25 mb-2">Sector</p>
+                        <p className="text-white/65">{client.industry}</p>
+                      </div>
+                      <div>
+                        <p className="text-white/25 mb-2">Services</p>
+                        <p className="text-white/65 leading-relaxed">{services.join(', ')}</p>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.article>
+            );
+          })}
         </div>
       </section>
 
-      {/*
-      Section 2: Social Media (Instagram Stories Slider)
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-emerald-500/5 pointer-events-none"></div>
-        
-        <div className="container mx-auto px-6 mb-12 relative z-10">
-          <div className="flex items-end justify-between border-b border-white/10 pb-6">
-            <h2 className="text-3xl font-bold uppercase tracking-tighter">02. Social Media</h2>
-          </div>
-        </div>
-        
-        <div className="relative z-10">
-          <AutoSlider items={storyCards} speed="fast" />
-          
-          <AutoSlider items={[...storyCards].reverse()} speed="fast" reverse={true} delay={800} />
+      <section className="py-20 md:py-28 border-t border-white/10">
+        <div className="container mx-auto px-6">
+          <p className="text-[#00ff88] text-xs font-black uppercase tracking-[0.4em] mb-8">Archive</p>
+          <p className="text-white/70 text-3xl md:text-5xl leading-tight max-w-5xl">
+            More case studies are coming soon as we continue building identities, social systems and campaigns for growing brands.
+          </p>
         </div>
       </section>
-      */}
     </div>
   );
 };
