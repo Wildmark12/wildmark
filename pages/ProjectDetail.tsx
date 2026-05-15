@@ -85,8 +85,8 @@ const ProjectDetail: React.FC = () => {
   return (
     <div className="bg-[#050a1b] min-h-screen text-white">
       <section className="pt-64 md:pt-64 pb-16 border-b border-white/10">
-        <div className="container mx-auto px-6">
-          <Link to="/works" className="inline-flex items-center gap-2 text-white/45 hover:text-[#00ff88] font-bold text-xs uppercase tracking-[0.35em] mb-14 transition-colors">
+        <div className="container mx-auto px-4 md:px-6">
+          <Link to="/works" className="inline-flex items-center gap-2 text-white/45 hover:text-[#00ff88] font-bold text-xs uppercase tracking-[0.3em] md:tracking-[0.35em] mb-10 md:mb-14 transition-colors">
             <span>&larr;</span> Work
           </Link>
 
@@ -97,15 +97,15 @@ const ProjectDetail: React.FC = () => {
             className="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-12 lg:gap-24 items-end"
           >
             <div>
-              <motion.span variants={itemVariants} className="text-[#00ff88] font-bold text-xs tracking-[0.45em] uppercase mb-6 block">
+              <motion.span variants={itemVariants} className="text-[#00ff88] font-bold text-xs tracking-[0.32em] md:tracking-[0.45em] uppercase mb-6 block">
                 {client.industry}
               </motion.span>
-              <motion.h1 variants={itemVariants} className="text-[18vw] md:text-[12vw] lg:text-[9.5rem] font-black uppercase leading-[0.78] tracking-tight">
+              <motion.h1 variants={itemVariants} className="text-[16vw] sm:text-[15vw] md:text-[12vw] lg:text-[9.5rem] font-black uppercase leading-[0.84] md:leading-[0.78] tracking-tight">
                 {client.name}
               </motion.h1>
             </div>
 
-            <motion.div variants={itemVariants} className="grid grid-cols-2 lg:grid-cols-1 gap-8 border-t lg:border-t-0 lg:border-l border-white/15 pt-8 lg:pt-0 lg:pl-10">
+            <motion.div variants={itemVariants} className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6 md:gap-8 border-t lg:border-t-0 lg:border-l border-white/15 pt-8 lg:pt-0 lg:pl-10">
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-white/40 mb-3">Industry</p>
                 <p className="text-lg md:text-xl font-medium">{client.industry}</p>
@@ -120,7 +120,7 @@ const ProjectDetail: React.FC = () => {
       </section>
 
       <section className="py-16 md:py-24 border-b border-white/10">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -132,11 +132,11 @@ const ProjectDetail: React.FC = () => {
               {sectionLabels.overview}
             </motion.p>
             <div>
-              <motion.h2 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase leading-[0.92] tracking-tight mb-10">
+              <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black uppercase leading-[0.95] md:leading-[0.92] tracking-tight mb-8 md:mb-10">
                 {client.mainCampaign}
               </motion.h2>
               {client.aboutText && (
-                <motion.p variants={itemVariants} className="text-white/70 leading-relaxed font-light text-xl md:text-2xl max-w-4xl">
+                <motion.p variants={itemVariants} className="text-white/70 leading-relaxed font-light text-base sm:text-xl md:text-2xl max-w-4xl">
                   {client.aboutText}
                 </motion.p>
               )}
@@ -149,11 +149,11 @@ const ProjectDetail: React.FC = () => {
         <section className="py-2 md:py-3">
           <div className="px-2 md:px-3">
             <FadeImage
-              wrapperClassName="w-full min-h-[70vh] md:min-h-[82vh] group"
+              wrapperClassName="w-full min-h-[56vh] md:min-h-[82vh] group"
               loading="eager"
               src={leadImage}
               alt={`${client.name} hero application`}
-              className="w-full h-full min-h-[70vh] md:min-h-[82vh] object-cover"
+              className="w-full h-full min-h-[56vh] md:min-h-[82vh] object-cover"
               referrerPolicy="no-referrer"
             />
           </div>
@@ -162,11 +162,11 @@ const ProjectDetail: React.FC = () => {
 
       {secondaryImages.length > 0 && (
         <>
-          <section className="py-20 md:py-28">
-            <div className="container mx-auto px-6">
+          <section className="py-16 md:py-28">
+            <div className="container mx-auto px-4 md:px-6">
               <div className="grid lg:grid-cols-[360px_minmax(0,1fr)] gap-12 lg:gap-24 items-start">
                 <p className="text-xs font-bold uppercase tracking-[0.4em] text-[#00ff88]">{sectionLabels.gallery}</p>
-                <blockquote className="text-4xl md:text-6xl font-black uppercase leading-[0.95] tracking-tight max-w-5xl">
+                <blockquote className="text-3xl sm:text-4xl md:text-6xl font-black uppercase leading-[0.98] md:leading-[0.95] tracking-tight max-w-5xl">
                   Building a visual identity with clarity, structure and room for the brand to move.
                 </blockquote>
               </div>
@@ -178,7 +178,7 @@ const ProjectDetail: React.FC = () => {
               {secondaryImages.map((mockup, idx) => (
                 <FadeImage
                   key={mockup}
-                  wrapperClassName={`${idx === 2 ? 'md:col-span-2 aspect-[16/9]' : 'aspect-[4/5]'} group`}
+                  wrapperClassName={`${idx === 2 ? 'md:col-span-2 aspect-[4/5] sm:aspect-[16/9]' : 'aspect-[4/5]'} group`}
                   loading="lazy"
                   src={mockup}
                   alt={`${client.name} brand application ${idx + 2}`}
@@ -192,7 +192,7 @@ const ProjectDetail: React.FC = () => {
       )}
 
       {(client.colorPaletteImage || client.logoConstruction) && (
-        <section className="py-20 md:py-28 border-t border-white/10">
+        <section className="py-16 md:py-28 border-t border-white/10">
           <div className="px-2 md:px-3">
             <div className="grid lg:grid-cols-2 gap-2 md:gap-3 items-start">
               {client.colorPaletteImage && (
@@ -240,14 +240,14 @@ const ProjectDetail: React.FC = () => {
       )}
 
       <section className="py-20 md:py-28 border-t border-white/10">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+        <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/40 mb-5">Next Project</p>
-            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight">{nextClient?.name ?? 'Works'}</h2>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tight">{nextClient?.name ?? 'Works'}</h2>
           </div>
           <Link
             to={nextClient ? `/works/${nextClient.id}` : '/works'}
-            className="inline-flex w-fit items-center gap-3 border border-white/25 px-8 py-4 text-xs font-bold uppercase tracking-[0.3em] hover:border-[#00ff88] hover:text-[#00ff88] transition-colors"
+            className="inline-flex w-fit items-center gap-3 border border-white/25 px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.22em] md:tracking-[0.3em] hover:border-[#00ff88] hover:text-[#00ff88] transition-colors"
           >
             View Case
             <span>&rarr;</span>

@@ -7,8 +7,8 @@ import AutoSlider from '../components/AutoSlider';
 
 const Home: React.FC = () => {
   const companyLogos = CLIENTS.map(client => (
-    <Link to={`/works/${client.id}`} key={client.id} className="group relative flex flex-col items-center gap-4 pb-4 mx-4">
-      <div className="w-64 h-40 glass-card rounded-2xl flex items-center justify-center transition-all duration-700 overflow-hidden relative bg-[#1a1a1a]">
+    <Link to={`/works/${client.id}`} key={client.id} className="group relative flex flex-col items-center gap-4 pb-4 mx-2 md:mx-4">
+      <div className="w-52 sm:w-64 h-36 sm:h-40 glass-card rounded-2xl flex items-center justify-center transition-all duration-700 overflow-hidden relative bg-[#1a1a1a]">
         {client.coverImage && (
           <img 
             src={client.coverImage} 
@@ -43,8 +43,8 @@ const Home: React.FC = () => {
       </div>
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#00ff88]/10 blur-[140px] rounded-full -z-10 animate-pulse"></div>
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-48 md:pt-0 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] md:w-[700px] md:h-[700px] bg-[#00ff88]/10 blur-[100px] md:blur-[140px] rounded-full -z-10 animate-pulse"></div>
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -52,11 +52,11 @@ const Home: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="max-w-5xl"
         >
-          <h1 className="text-6xl md:text-9xl font-bold mb-8 leading-[0.85] chrome-text tracking-tighter uppercase">
+          <h1 className="text-5xl sm:text-6xl md:text-9xl font-bold mb-8 leading-[0.88] chrome-text tracking-tighter uppercase">
             Marketing <br /> 
             <span className="text-[#00ff88]">Defined.</span>
           </h1>
-          <p className="text-gray-400 text-lg md:text-2xl max-w-3xl mx-auto mb-14 font-light">
+          <p className="text-gray-400 text-base sm:text-lg md:text-2xl max-w-3xl mx-auto mb-10 md:mb-14 font-light">
             Wildmark is a full-service branding, marketing, and ad production agency based in Calicut. We build digital ecosystems that scale businesses with confidence.
           </p>
           <div className="flex justify-center items-center">
@@ -68,19 +68,19 @@ const Home: React.FC = () => {
       </section>
 
       {/* 2. Services Section */}
-      <section className="py-40 relative">
+      <section className="py-24 md:py-40 relative">
         {/* Enhanced background wash with blue-green mix */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-emerald-500/5 pointer-events-none"></div>
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col items-center text-center mb-24"
+            className="flex flex-col items-center text-center mb-14 md:mb-24"
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tighter text-[#00ff88]">Our Services.</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tighter text-[#00ff88]">Our Services.</h2>
             <p className="text-gray-500 max-w-xl mx-auto">Complete Solutions for Creative Growth & Business Support</p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -122,7 +122,7 @@ const Home: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="glass-card p-10 rounded-[30px] hover:border-[#00ff88]/50 transition-all duration-500 group relative overflow-hidden flex flex-col items-start"
+                className="glass-card p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[30px] hover:border-[#00ff88]/50 transition-all duration-500 group relative overflow-hidden flex flex-col items-start"
               >
                 <div className="text-[#00ff88] mb-6 group-hover:scale-110 transition-transform">{service.icon}</div>
                 <h3 className="text-2xl font-bold mb-4 group-hover:text-[#00ff88] transition-colors">{service.title}</h3>
@@ -135,11 +135,11 @@ const Home: React.FC = () => {
       </section>
 
       {/* 3. Partners Section  */}
-      <section className="py-32 relative overflow-hidden border-y border-white/5">
+      <section className="py-20 md:py-32 relative overflow-hidden border-y border-white/5">
         {/* Smooth blue to green transition wash */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-[#00ff88]/5 pointer-events-none"></div>
         
-        <div className="container mx-auto px-6 mb-16 text-center relative z-10">
+        <div className="container mx-auto px-4 md:px-6 mb-12 md:mb-16 text-center relative z-10">
           <p className="text-[#00ff88]/60 text-[11px] font-bold tracking-[0.6em] uppercase">Our Clients</p>
         </div>
         <div className="relative z-10">

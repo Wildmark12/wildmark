@@ -105,8 +105,8 @@ const AutoSlider: React.FC<AutoSliderProps> = ({
   return (
     <div className="relative group py-4"> 
       {/* Visual edge fades */}
-      <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#050a1b] to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-[#050a1b] to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-[#050a1b] to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-[#050a1b] to-transparent z-10 pointer-events-none"></div>
       
       <div 
         ref={containerRef}
@@ -116,7 +116,7 @@ const AutoSlider: React.FC<AutoSliderProps> = ({
           - onMouseEnter/onMouseDown/onTouchStart pauses the slider.
           - onMouseLeave/onMouseUp/onTouchEnd resumes it immediately.
         */
-        className="flex items-center gap-16 overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing px-10 py-12"
+        className="flex items-center gap-6 md:gap-16 overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing px-4 md:px-10 py-8 md:py-12"
         onMouseEnter={handleInteractionStart}
         onMouseLeave={handleInteractionEnd}
         onMouseDown={handleInteractionStart}

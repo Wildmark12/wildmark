@@ -9,17 +9,17 @@ const Works: React.FC = () => {
   return (
     <div className="bg-[#050a1b] min-h-screen text-white">
       <section className="pt-64 md:pt-64 pb-14 md:pb-20">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-6xl"
           >
-            <h1 className="text-[19vw] md:text-[13vw] lg:text-[10rem] font-black uppercase leading-[0.78] tracking-tight mb-10">
+            <h1 className="text-[17vw] sm:text-[16vw] md:text-[13vw] lg:text-[10rem] font-black uppercase leading-[0.82] tracking-tight mb-8 md:mb-10">
               Our Work
             </h1>
-            <p className="text-white/70 text-3xl md:text-5xl lg:text-6xl leading-[1.05] font-light max-w-5xl">
+            <p className="text-white/70 text-2xl sm:text-3xl md:text-5xl lg:text-6xl leading-[1.08] font-light max-w-5xl">
               We partner with ambitious brands to build identities, campaigns and visual systems that move with culture.
             </p>
           </motion.div>
@@ -47,7 +47,7 @@ const Works: React.FC = () => {
                 className={`group ${placement}`}
               >
                 <Link to={`/works/${client.id}`} className="block">
-                  <div className={`relative overflow-hidden bg-[#071026] ${isFeature ? 'aspect-[5/4]' : 'aspect-[4/5]'}`}>
+                  <div className={`relative overflow-hidden bg-[#071026] ${isFeature ? 'aspect-[4/5] sm:aspect-[5/4]' : 'aspect-[4/5]'}`}>
                     {image && (
                       <img
                         src={image}
@@ -61,15 +61,15 @@ const Works: React.FC = () => {
 
                   <div className="grid md:grid-cols-[minmax(0,1fr)_220px] gap-5 md:gap-8 pt-5 md:pt-6 pb-14 md:pb-20">
                     <div>
-                      <h2 className="text-4xl md:text-6xl font-black uppercase leading-[0.86] tracking-tight mb-4 group-hover:text-[#00ff88] transition-colors">
+                      <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase leading-[0.9] tracking-tight mb-4 group-hover:text-[#00ff88] transition-colors">
                         {client.name}
                       </h2>
-                      <p className="text-white/65 text-lg md:text-xl leading-snug max-w-2xl">
+                      <p className="text-white/65 text-base sm:text-lg md:text-xl leading-snug max-w-2xl">
                         {client.description}
                       </p>
                     </div>
 
-                    <div className="text-[10px] font-black uppercase tracking-[0.28em] text-white/45 space-y-5">
+                    <div className="text-[10px] font-black uppercase tracking-[0.22em] sm:tracking-[0.28em] text-white/45 space-y-5">
                       <div>
                         <p className="text-white/25 mb-2">Sector</p>
                         <p className="text-white/65">{client.industry}</p>
@@ -88,9 +88,9 @@ const Works: React.FC = () => {
       </section>
 
       <section className="py-20 md:py-28 border-t border-white/10">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <p className="text-[#00ff88] text-xs font-black uppercase tracking-[0.4em] mb-8">Archive</p>
-          <p className="text-white/70 text-3xl md:text-5xl leading-tight max-w-5xl">
+          <p className="text-white/70 text-2xl sm:text-3xl md:text-5xl leading-tight max-w-5xl">
             More case studies are coming soon as we continue building identities, social systems and campaigns for growing brands.
           </p>
         </div>
