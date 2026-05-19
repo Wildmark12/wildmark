@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
         
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left pt-10 border-t border-white/5 gap-6 text-sm text-gray-500">
-          <p>&copy; 2024 WILDMARK. ALL RIGHTS RESERVED.</p>
+          <p>&copy; 2025 WILDMARK. ALL RIGHTS RESERVED.</p>
           <div className="flex flex-wrap justify-center gap-5 md:gap-8">
             <button className="hover:text-white transition-colors duration-300">PRIVACY POLICY</button>
             <button className="hover:text-white transition-colors duration-300">TERMS OF SERVICE</button>
