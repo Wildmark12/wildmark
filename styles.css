@@ -190,27 +190,62 @@ body {
 }
 
 /* Logo image transitions */
+.nav-logo-link {
+  position: relative;
+  height: 32px;
+  width: 70px;
+  overflow: visible;
+}
+
+@media (min-width: 768px) {
+  .nav-logo-link {
+    height: 56px;
+    width: 123px;
+  }
+}
+
+.scrolled .nav-logo-link {
+  height: 24px;
+  width: 53px;
+}
+
+@media (min-width: 768px) {
+  .scrolled .nav-logo-link {
+    height: 28px;
+    width: 61px;
+  }
+}
+
 .nav-logo {
+  position: absolute;
+  top: 50%;
+  left: 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   object-fit: contain;
-  height: 32px;
+  height: 56px;
   width: auto;
+  max-width: none;
+  transform: translateY(-50%);
 }
 
 @media (min-width: 768px) {
   .nav-logo {
-    height: 56px;
+    height: 96px;
   }
 }
 
 .scrolled .nav-logo {
-  height: 24px;
+  height: 52px;
 }
 
 @media (min-width: 768px) {
   .scrolled .nav-logo {
-    height: 28px;
+    height: 72px;
   }
+}
+
+.nav-logo-link:hover .nav-logo {
+  transform: translateY(-50%) scale(1.05);
 }
 
 /* Nav links container */

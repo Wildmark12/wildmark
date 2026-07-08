@@ -20,11 +20,11 @@ const Navbar: React.FC = () => {
     <nav className={`nav-custom-wrapper ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-custom-pill">
         <div className="nav-container">
-          <Link to="/" className="flex items-center justify-center shrink-0 group">
+          <Link to="/" className="nav-logo-link flex items-center justify-center shrink-0 group">
             <img 
               src="/logo.png" 
               alt="Wildmark Logo" 
-              className="nav-logo group-hover:scale-105 transform-gpu antialiased" 
+              className="nav-logo transform-gpu antialiased" 
               style={{ WebkitFontSmoothing: 'antialiased' }}
             />
           </Link>
