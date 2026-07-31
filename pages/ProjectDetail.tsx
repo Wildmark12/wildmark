@@ -73,9 +73,6 @@ const ProjectDetail: React.FC = () => {
   const nextSectionLabel = (title: string) => `${String(sectionIndex++).padStart(2, '0')} ${title}`;
   const sectionLabels = {
     overview: client.aboutText ? nextSectionLabel('Overview') : '',
-    gallery: client.mockups && client.mockups.length > 0 ? nextSectionLabel('Identity in motion') : '',
-    colorPalette: client.colorPaletteImage ? nextSectionLabel('Colour system') : '',
-    logoConstruction: client.logoConstruction ? nextSectionLabel('Construction') : '',
   };
   const services = ['Brand Strategy', 'Visual Identity', 'Art Direction', 'Brand Applications'];
   const leadImage = client.mockups?.[0] ?? client.coverImage;
@@ -84,8 +81,8 @@ const ProjectDetail: React.FC = () => {
 
   return (
     <div className="bg-[#050a1b] min-h-screen text-white">
-      <section className="pt-64 md:pt-64 pb-16 border-b border-white/10">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="pt-64 md:pt-32 pb-14 md:pb-20 border-b border-white/10">
+        <div className="site-gutter">
           <Link to="/works" className="inline-flex items-center gap-2 text-white/45 hover:text-[#00ff88] font-bold text-xs uppercase tracking-[0.3em] md:tracking-[0.35em] mb-10 md:mb-14 transition-colors">
             <span>&larr;</span> Work
           </Link>
@@ -100,7 +97,7 @@ const ProjectDetail: React.FC = () => {
               <motion.span variants={itemVariants} className="text-[#00ff88] font-bold text-xs tracking-[0.32em] md:tracking-[0.45em] uppercase mb-6 block">
                 {client.industry}
               </motion.span>
-              <motion.h1 variants={itemVariants} className="text-[16vw] sm:text-[15vw] md:text-[12vw] lg:text-[9.5rem] font-black uppercase leading-[0.84] md:leading-[0.78] tracking-tight">
+              <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl md:text-8xl font-bold chrome-text uppercase leading-none">
                 {client.name}
               </motion.h1>
             </div>
@@ -120,7 +117,7 @@ const ProjectDetail: React.FC = () => {
       </section>
 
       <section className="py-16 md:py-24 border-b border-white/10">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="site-gutter">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -132,11 +129,11 @@ const ProjectDetail: React.FC = () => {
               {sectionLabels.overview}
             </motion.p>
             <div>
-              <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black uppercase leading-[0.95] md:leading-[0.92] tracking-tight mb-8 md:mb-10">
+                <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase leading-tight mb-6 md:mb-8">
                 {client.mainCampaign}
               </motion.h2>
               {client.aboutText && (
-                <motion.p variants={itemVariants} className="text-white/70 leading-relaxed font-light text-base sm:text-xl md:text-2xl max-w-4xl">
+                <motion.p variants={itemVariants} className="text-white/70 leading-relaxed font-light text-base sm:text-lg md:text-xl max-w-4xl">
                   {client.aboutText}
                 </motion.p>
               )}
@@ -146,14 +143,14 @@ const ProjectDetail: React.FC = () => {
       </section>
 
       {leadImage && (
-        <section className="py-2 md:py-3">
-          <div className="px-2 md:px-3">
+        <section className="pt-2 md:pt-3 pb-4">
+          <div className="site-gutter">
             <FadeImage
-              wrapperClassName="w-full min-h-[56vh] md:min-h-[82vh] group"
+              wrapperClassName="w-full max-w-[3000px] mx-auto aspect-[3/2] group"
               loading="eager"
               src={leadImage}
               alt={`${client.name} hero application`}
-              className="w-full h-full min-h-[56vh] md:min-h-[82vh] object-cover"
+              className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
           </div>
@@ -161,86 +158,25 @@ const ProjectDetail: React.FC = () => {
       )}
 
       {secondaryImages.length > 0 && (
-        <>
-          <section className="py-16 md:py-28">
-            <div className="container mx-auto px-4 md:px-6">
-              <div className="grid lg:grid-cols-[360px_minmax(0,1fr)] gap-12 lg:gap-24 items-start">
-                <p className="text-xs font-bold uppercase tracking-[0.4em] text-[#00ff88]">{sectionLabels.gallery}</p>
-                <blockquote className="text-3xl sm:text-4xl md:text-6xl font-black uppercase leading-[0.98] md:leading-[0.95] tracking-tight max-w-5xl">
-                  Building a visual identity with clarity, structure and room for the brand to move.
-                </blockquote>
-              </div>
-            </div>
-          </section>
-
-          <section className="px-2 md:px-3 pb-3">
-            <div className="grid md:grid-cols-2 gap-2 md:gap-3">
-              {secondaryImages.map((mockup, idx) => (
-                <FadeImage
-                  key={mockup}
-                  wrapperClassName={`${idx === 2 ? 'md:col-span-2 aspect-[4/5] sm:aspect-[16/9]' : 'aspect-[4/5]'} group`}
-                  loading="lazy"
-                  src={mockup}
-                  alt={`${client.name} brand application ${idx + 2}`}
-                  className="w-full h-full object-cover group-hover:scale-[1.02]"
-                  referrerPolicy="no-referrer"
-                />
-              ))}
-            </div>
-          </section>
-        </>
-      )}
-
-      {(client.colorPaletteImage || client.logoConstruction) && (
-        <section className="py-16 md:py-28 border-t border-white/10">
-          <div className="px-2 md:px-3">
-            <div className="grid lg:grid-cols-2 gap-2 md:gap-3 items-start">
-              {client.colorPaletteImage && (
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="space-y-8"
-                >
-                  <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-[#00ff88]">{sectionLabels.colorPalette}</h2>
-                  <FadeImage
-                    wrapperClassName="w-full group bg-transparent"
-                    loading="lazy"
-                    src={client.colorPaletteImage}
-                    alt={`${client.name} colour system`}
-                    className="w-full h-auto object-contain"
-                    referrerPolicy="no-referrer"
-                  />
-                </motion.div>
-              )}
-
-              {client.logoConstruction && (
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                  className="space-y-8"
-                >
-                  <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-[#00ff88]">{sectionLabels.logoConstruction}</h2>
-                  <FadeImage
-                    wrapperClassName="w-full group bg-transparent"
-                    loading="lazy"
-                    src={client.logoConstruction}
-                    alt={`${client.name} logo construction`}
-                    className="w-full h-auto object-contain"
-                    referrerPolicy="no-referrer"
-                  />
-                </motion.div>
-              )}
-            </div>
+        <section className="site-gutter pb-4">
+          <div className="grid md:grid-cols-2 gap-4">
+            {secondaryImages.map((mockup, idx) => (
+              <FadeImage
+                key={mockup}
+                wrapperClassName={`${idx === 2 ? 'md:col-span-2 w-full max-w-[3000px] mx-auto aspect-[3/2]' : 'aspect-[4/5]'} group`}
+                loading="lazy"
+                src={mockup}
+                alt={`${client.name} brand application ${idx + 2}`}
+                className="w-full h-full object-cover group-hover:scale-[1.02]"
+                referrerPolicy="no-referrer"
+              />
+            ))}
           </div>
         </section>
       )}
 
       <section className="py-20 md:py-28 border-t border-white/10">
-        <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+        <div className="site-gutter flex flex-col md:flex-row md:items-end md:justify-between gap-10">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/40 mb-5">Next Project</p>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tight">{nextClient?.name ?? 'Works'}</h2>

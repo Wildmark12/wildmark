@@ -21,14 +21,14 @@ const About: React.FC = () => {
       <div className="absolute top-0 right-0 w-full h-[700px] bg-gradient-to-bl from-emerald-500/10 to-transparent -z-10 pointer-events-none"></div>
       <div className="absolute top-[400px] left-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
 
-      <div className="container mx-auto px-4 md:px-6 mb-16 md:mb-24 relative z-10">
+      <div className="site-gutter mb-16 md:mb-24 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold chrome-text uppercase mb-6 leading-none">
-            Who <br /><span className="text-[#00ff88]">We Are.</span>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold chrome-text uppercase mb-6 leading-none">
+            Who <span className="text-[#00ff88]">We Are.</span>
           </h1>
           <p className="text-gray-400 text-base sm:text-lg md:text-xl max-w-4xl font-light leading-relaxed">
             Wildmark is a full-service branding, marketing, and ad production agency based in Calicut—built to do more than just promote brands. We provide complete business solutions that help companies launch, grow, and scale with confidence.
@@ -37,7 +37,7 @@ const About: React.FC = () => {
       </div>
 
       {/* Story & Approach Section */}
-      <section className="container mx-auto px-4 md:px-6 mb-24 md:mb-40 relative z-10">
+      <section className="site-gutter mb-24 md:mb-40 relative z-10">
         <div className="grid md:grid-cols-2 gap-12">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -74,7 +74,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="container mx-auto px-4 md:px-6 mb-24 md:mb-40 relative z-10">
+      <section className="site-gutter mb-24 md:mb-40 relative z-10">
         <div className="grid md:grid-cols-2 gap-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -110,7 +110,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="container mx-auto px-4 md:px-6 mb-24 md:mb-40 relative z-10">
+      <section className="site-gutter mb-24 md:mb-40 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -160,7 +160,7 @@ const About: React.FC = () => {
 
       {/* How We Do It Section */}
       <section className="py-20 relative overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="site-gutter">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -212,41 +212,71 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Expertise / Capabilities Grid */}
-      <section className="container mx-auto px-4 md:px-6 mb-24 md:mb-40 relative z-10 pt-16 md:pt-20">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 md:mb-16 border-b border-white/10 pb-6">
-          <h2 className="text-3xl font-bold uppercase tracking-tighter text-[#00ff88]">Our Services</h2>
-          <span className="text-gray-500 font-bold text-sm tracking-widest uppercase">END-TO-END SOLUTIONS</span>
-        </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+      {/* Services Section */}
+      <section className="py-24 md:py-40 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-emerald-500/5 pointer-events-none"></div>
+
+        <div className="site-gutter relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center text-center mb-14 md:mb-24"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tighter text-[#00ff88]">Our Services.</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">Complete Solutions for Creative Growth</p>
+          </motion.div>
+          <div className="flex flex-wrap justify-center gap-8">
           {[
-            { title: 'Branding', icon: <ShieldCheck size={32} strokeWidth={1.5} />, desc: 'Brand Building & Management' },
-            { title: 'Marketing', icon: <BarChart3 size={32} strokeWidth={1.5} />, desc: 'Social, Digital, Influencer, Traditional' },
-            { title: 'Content & Design', icon: <Lightbulb size={32} strokeWidth={1.5} />, desc: 'Ad Production, Creation, Copywriting' },
-            { title: 'Advertising', icon: <Megaphone size={32} strokeWidth={1.5} />, desc: 'High-impact visual storytelling' },
-            { title: 'Web Development', icon: <Globe size={32} strokeWidth={1.5} />, desc: 'Responsive & Scalable Websites' },
-            { title: 'Business Services', icon: <Handshake size={32} strokeWidth={1.5} />, desc: 'Incorporation, GST, Trademark' }
-          ].map((item, idx) => (
+            { 
+              title: 'Branding', 
+              desc: 'Strategic identity development from the ground up and maintaining consistency over time.', 
+              icon: <ShieldCheck size={40} strokeWidth={1.5} />
+            },
+            { 
+              title: 'Marketing', 
+              desc: 'Performance-driven social, digital, and influencer campaigns that deliver measurable results.', 
+              icon: <BarChart3 size={40} strokeWidth={1.5} />
+            },
+            { 
+              title: 'Advertising', 
+              desc: 'High-impact visual storytelling and ad production that turn casual scrollers into loyal advocates.', 
+              icon: <Megaphone size={40} strokeWidth={1.5} />
+            },
+            { 
+              title: 'Content & Design', 
+              desc: 'Purpose-driven content, graphic design, and copywriting tailored to your unique audience.', 
+              icon: <Lightbulb size={40} strokeWidth={1.5} />
+            },
+            { 
+              title: 'Web Development', 
+              desc: 'Responsive, scalable, and user-focused digital hubs combining performance with modern design.', 
+              icon: <Globe size={40} strokeWidth={1.5} />
+            }
+          ].map((service, idx) => (
             <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              key={service.title}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="glass-card p-6 md:p-10 rounded-2xl md:rounded-3xl group hover:border-[#00ff88]/40 transition-all duration-500 flex flex-col items-start"
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="glass-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[30px] hover:border-[#00ff88]/50 transition-all duration-500 group relative overflow-hidden flex flex-col items-start"
             >
-              <div className="text-[#00ff88] mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
-              <h3 className="text-xl font-bold uppercase tracking-widest mb-2 group-hover:text-[#00ff88]">{item.title}</h3>
-              <p className="text-gray-500 text-xs font-light">{item.desc}</p>
+              <div className="text-[#00ff88] mb-6 group-hover:scale-110 transition-transform">{service.icon}</div>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-[#00ff88] transition-colors">{service.title}</h3>
+              <p className="text-gray-400 leading-relaxed text-sm">{service.desc}</p>
+              <div className="absolute -bottom-6 -right-6 text-9xl font-bold text-white/[0.02] pointer-events-none group-hover:text-[#00ff88]/[0.05] transition-colors duration-700">0{idx + 1}</div>
             </motion.div>
           ))}
+          </div>
         </div>
       </section>
 
       {/* Philosophy Section */}
       <section className="py-24 md:py-40 relative overflow-hidden border-y border-white/5">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-600/10 to-transparent pointer-events-none"></div>
-        <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
+        <div className="site-gutter text-center relative z-10">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}

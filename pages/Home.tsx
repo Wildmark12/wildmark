@@ -1,27 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ShieldCheck, BarChart3, Megaphone, Lightbulb, Globe, Handshake } from 'lucide-react';
+import { ShieldCheck, BarChart3, Megaphone, Lightbulb, Globe } from 'lucide-react';
 import { CLIENTS } from '../constants';
-import AutoSlider from '../components/AutoSlider';
 
 const Home: React.FC = () => {
-  const companyLogos = CLIENTS.map(client => (
-    <Link to={`/works/${client.id}`} key={client.id} className="group relative flex flex-col items-center gap-4 pb-4 mx-2 md:mx-4">
-      <div className="w-52 sm:w-64 h-36 sm:h-40 glass-card rounded-2xl flex items-center justify-center transition-all duration-700 overflow-hidden relative bg-[#1a1a1a]">
-        {client.coverImage && (
-          <img 
-            src={client.coverImage} 
-            alt={client.name} 
-            className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
-            referrerPolicy="no-referrer"
-          />
-        )}
-        <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500 z-0"></div>
-        <h3 className="text-sm font-bold tracking-[0.2em] text-white z-10 uppercase">{client.name}</h3>
-      </div>
-    </Link>
-  ));
+  const featuredClients = CLIENTS.slice(0, 5);
+  const clientServices = ['Brand Strategy', 'Visual Identity', 'Brand Applications'];
 
   return (
     <div className="relative">
@@ -43,7 +28,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-48 md:pt-0 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center site-gutter pt-48 md:pt-0 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] md:w-[700px] md:h-[700px] bg-[#00ff88]/10 blur-[100px] md:blur-[140px] rounded-full -z-10 animate-pulse"></div>
         
         <motion.div 
@@ -68,82 +53,129 @@ const Home: React.FC = () => {
       </section>
 
       {/* 2. Services Section */}
-      <section className="py-24 md:py-40 relative">
-        {/* Enhanced background wash with blue-green mix */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-emerald-500/5 pointer-events-none"></div>
+      <section className="site-gutter py-24 md:py-40 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center text-center mb-14 md:mb-24"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tighter text-[#00ff88]">Our Services.</h2>
+          <p className="text-gray-500 max-w-xl mx-auto">Complete Solutions for Creative Growth</p>
+        </motion.div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
+          {[
+            { title: 'Branding', icon: <ShieldCheck size={32} strokeWidth={1.5} /> },
+            { title: 'Marketing', icon: <BarChart3 size={32} strokeWidth={1.5} /> },
+            { title: 'Content & Design', icon: <Lightbulb size={32} strokeWidth={1.5} /> },
+            { title: 'Advertising', icon: <Megaphone size={32} strokeWidth={1.5} /> },
+            { title: 'Web Development', icon: <Globe size={32} strokeWidth={1.5} /> }
+          ].map((item, idx) => (
+            <motion.div 
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.05 }}
+              className="glass-card min-h-36 p-5 md:p-6 rounded-2xl group hover:border-[#00ff88]/40 transition-all duration-500 flex flex-col justify-between items-start relative overflow-hidden"
+            >
+              <span className="absolute -bottom-6 -right-6 text-9xl font-bold text-white/[0.02] pointer-events-none group-hover:text-[#00ff88]/[0.05] transition-colors duration-700">
+                {String(idx + 1).padStart(2, '0')}
+              </span>
+              <div className="relative z-10 text-[#00ff88] group-hover:scale-110 transition-transform">{item.icon}</div>
+              <h3 className="relative z-10 text-base md:text-lg font-bold uppercase tracking-[0.16em] leading-tight group-hover:text-[#00ff88]">
+                {item.title}
+              </h3>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. Clients Section  */}
+      <section className="py-20 md:py-32 relative overflow-hidden border-y border-white/5">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-[#00ff88]/5 pointer-events-none"></div>
         
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <motion.div 
+        <div className="site-gutter relative z-10">
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center text-center mb-14 md:mb-24"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tighter text-[#00ff88]">Our Services.</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">Complete Solutions for Creative Growth & Business Support</p>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tighter chrome-text ">
+              Our Clients.
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto">Selected brands we have built with.</p>
           </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { 
-                title: 'Branding', 
-                desc: 'Strategic identity development from the ground up and maintaining consistency over time.', 
-                icon: <ShieldCheck size={40} strokeWidth={1.5} />
-              },
-              { 
-                title: 'Marketing', 
-                desc: 'Performance-driven social, digital, and influencer campaigns that deliver measurable results.', 
-                icon: <BarChart3 size={40} strokeWidth={1.5} />
-              },
-              { 
-                title: 'Advertising', 
-                desc: 'High-impact visual storytelling and ad production that turn casual scrollers into loyal advocates.', 
-                icon: <Megaphone size={40} strokeWidth={1.5} />
-              },
-              { 
-                title: 'Content & Design', 
-                desc: 'Purpose-driven content, graphic design, and copywriting tailored to your unique audience.', 
-                icon: <Lightbulb size={40} strokeWidth={1.5} />
-              },
-              { 
-                title: 'Web Development', 
-                desc: 'Responsive, scalable, and user-focused digital hubs combining performance with modern design.', 
-                icon: <Globe size={40} strokeWidth={1.5} />
-              },
-              { 
-                title: 'Business Services', 
-                desc: 'Supporting your growth with company incorporation, GST registration, and trademark filing.', 
-                icon: <Handshake size={40} strokeWidth={1.5} />
-              }
-            ].map((service, idx) => (
-              <motion.div 
-                key={service.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="glass-card p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[30px] hover:border-[#00ff88]/50 transition-all duration-500 group relative overflow-hidden flex flex-col items-start"
-              >
-                <div className="text-[#00ff88] mb-6 group-hover:scale-110 transition-transform">{service.icon}</div>
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-[#00ff88] transition-colors">{service.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">{service.desc}</p>
-                <div className="absolute -bottom-6 -right-6 text-9xl font-bold text-white/[0.02] pointer-events-none group-hover:text-[#00ff88]/[0.05] transition-colors duration-700">0{idx + 1}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* 3. Partners Section  */}
-      <section className="py-20 md:py-32 relative overflow-hidden border-y border-white/5">
-        {/* Smooth blue to green transition wash */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-[#00ff88]/5 pointer-events-none"></div>
-        
-        <div className="container mx-auto px-4 md:px-6 mb-12 md:mb-16 text-center relative z-10">
-          <p className="text-[#00ff88]/60 text-[11px] font-bold tracking-[0.6em] uppercase">Our Clients</p>
-        </div>
-        <div className="relative z-10">
-          <AutoSlider items={companyLogos} type="continuous" speed="normal" />
+          <div className="space-y-14 md:space-y-20">
+            {[
+              featuredClients.slice(0, 2),
+              featuredClients.slice(2, 3),
+              featuredClients.slice(3, 5)
+            ].map((row, rowIndex) => {
+              if (row.length === 0) return null;
+              const isSingle = row.length === 1;
+
+              return (
+                <div
+                  key={`home-client-row-${rowIndex}`}
+                  className={isSingle ? '' : 'grid md:grid-cols-2 gap-y-12 md:gap-y-0 md:gap-x-[4%] items-stretch'}
+                >
+                  {row.map((client, cardIndex) => {
+                    const imageIndex = rowIndex * 2 + cardIndex;
+                    const image = client.mockups?.[imageIndex % Math.max(client.mockups.length, 1)] ?? client.coverImage;
+
+                    return (
+                      <motion.article
+                        key={client.id}
+                        initial={{ opacity: 0, y: 34 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-120px" }}
+                        transition={{ duration: 0.75, delay: imageIndex * 0.04 }}
+                        className="group min-w-0"
+                      >
+                        <Link to={`/works/${client.id}`} className="block">
+                          <div className={`relative overflow-hidden bg-[#071026] ${isSingle ? 'w-full max-w-[3000px] mx-auto aspect-[3/2]' : 'h-[340px] md:h-[500px]'}`}>
+                            {image && (
+                              <img
+                                src={image}
+                                alt={client.name}
+                                loading={imageIndex === 0 ? 'eager' : 'lazy'}
+                                decoding="async"
+                                className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-[1.03]"
+                              />
+                            )}
+                          </div>
+
+                          <div className="pt-4">
+                            <h3 className="text-[22px] md:text-2xl font-bold leading-tight text-white group-hover:text-[#00ff88] transition-colors">
+                              {client.name}
+                            </h3>
+                            <div className="flex flex-wrap gap-2 mt-3">
+                              <span className="inline-flex items-center border border-white/45 px-3 py-1 text-xs leading-none text-white/70">
+                                {client.industry}
+                              </span>
+                              {clientServices.map(service => (
+                                <span
+                                  key={`${client.id}-${service}`}
+                                  className="inline-flex items-center border border-white/45 rounded-full px-3 py-1 text-xs leading-none text-white/70"
+                                >
+                                  {service}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </Link>
+                      </motion.article>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
       

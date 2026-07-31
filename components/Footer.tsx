@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <footer id="contact" className="bg-[#050a1b] border-t border-white/5 pt-16 md:pt-20 pb-10 scroll-mt-36">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="site-gutter">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 mb-16 md:mb-20">
           <div className="text-center md:text-left">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 chrome-text uppercase leading-none">

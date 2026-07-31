@@ -2,7 +2,7 @@
 export interface Client {
   id: string;
   name: string;
-  logo: string;
+  logo?: string;
   coverImage?: string;
   industry: string;
   description: string;

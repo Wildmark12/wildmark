@@ -5,6 +5,7 @@
 :root {
   --color-bg: #050a1b;
   --color-accent: #00ff88;
+  --site-gutter: clamp(20px, 4.0625vw, 78px);
 }
 
 body {
@@ -12,6 +13,18 @@ body {
   background-color: var(--color-bg);
   color: #ffffff;
   overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: none;
+  padding-left: var(--site-gutter);
+  padding-right: var(--site-gutter);
+}
+
+.site-gutter {
+  padding-left: var(--site-gutter);
+  padding-right: var(--site-gutter);
 }
 
 /* Global Animated Background Blobs */

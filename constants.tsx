@@ -10,7 +10,6 @@ export const CLIENTS: Client[] = [
   {
     id: '1',
     name: 'Leuart',
-    logo: '/clients/leuart/logo_variants/1.png',
     coverImage: '/clients/leuart/cover.jpg',
     industry: 'Architectural Design',
     description: 'Four geometric planes come together to create a refined dimensional form for modern interiors.',
@@ -18,21 +17,19 @@ export const CLIENTS: Client[] = [
     mainCampaign: 'New Dimension',
     aboutTitle: 'New Dimension',
     aboutText: 'The LEUART icon is built from four geometric planes that come together to create a new dimensional form. The central diagonal adds depth and perspective, symbolizing how LEUART transforms flat spaces into dynamic, well-crafted interiors.',
-    logoConstruction: '/clients/leuart/logo_construction/construction.jpg',
 
     mockups: [
-      '/clients/leuart/mockups/1.jpg',
-      '/clients/leuart/mockups/2.jpg',
-      '/clients/leuart/mockups/3.jpg',
-      '/clients/leuart/mockups/4.jpg'
-    ],
-    colorPaletteImage: '/clients/leuart/color_palette/palette.png'
+      '/clients/leuart/1.jpeg',
+      '/clients/leuart/2.jpeg',
+      '/clients/leuart/3.jpeg',
+      '/clients/leuart/4.jpeg',
+      '/clients/leuart/5.jpeg'
+    ]
   },
 
   {
     id: '2',
     name: 'Studio adis',
-    logo: '/clients/adis/logo_variants/1.png',
     coverImage: '/clients/adis/cover.jpg',
     industry: 'Architecture Firm',
     description: 'A clean architectural identity shaped around space, structure, and refined modern living.',
@@ -40,15 +37,112 @@ export const CLIENTS: Client[] = [
     mainCampaign: 'Built Perspective',
     aboutTitle: 'Built Perspective',
     aboutText: 'Studio adis is an architecture firm focused on thoughtful planning, balanced forms, and functional spaces. The identity reflects a studio that turns ideas into precise, livable environments with clarity and detail.',
-    logoConstruction: '/clients/adis/logo_construction/construction.jpg',
 
     mockups: [
-      '/clients/adis/mockups/1.jpg',
-      '/clients/adis/mockups/2.jpg',
-      '/clients/adis/mockups/3.jpg',
-      '/clients/adis/mockups/4.jpg'
-    ],
-    colorPaletteImage: '/clients/adis/color_palette/palette.png'
+      '/clients/adis/1.jpg',
+      '/clients/adis/2.png',
+      '/clients/adis/3.jpg',
+      '/clients/adis/4.png'
+    ]
+  },
+
+  {
+    id: '3',
+    name: 'Base6',
+    coverImage: '/clients/base6/1.jpeg',
+    industry: 'Brand Identity',
+    description: 'A focused visual identity system built across practical campaign and brand touchpoints.',
+
+    mainCampaign: 'Visual System',
+    aboutTitle: 'Visual System',
+    aboutText: 'Base6 brings together brand applications, presentation assets, and campaign visuals into a consistent identity experience.',
+
+    mockups: [
+      '/clients/base6/1.jpeg',
+      '/clients/base6/2.jpeg',
+      '/clients/base6/3.jpeg',
+      '/clients/base6/4.jpeg',
+      '/clients/base6/5.jpeg'
+    ]
+  },
+
+  {
+    id: '4',
+    name: 'FCG',
+    coverImage: '/clients/FCG/1.jpeg',
+    industry: 'Brand Identity',
+    description: 'A clear identity direction supported by polished applications and visual brand assets.',
+
+    mainCampaign: 'Brand Applications',
+    aboutTitle: 'Brand Applications',
+    aboutText: 'FCG is presented through a practical set of brand touchpoints designed for consistency, recall, and everyday use.',
+
+    mockups: [
+      '/clients/FCG/1.jpeg',
+      '/clients/FCG/2.jpeg',
+      '/clients/FCG/3.jpeg',
+      '/clients/FCG/4.jpeg',
+      '/clients/FCG/5.jpeg',
+      '/clients/FCG/6.jpeg'
+    ]
+  },
+
+  {
+    id: '5',
+    name: 'Ghazva',
+    coverImage: '/clients/ghazva/1.jpeg',
+    industry: 'Brand Identity',
+    description: 'A distinctive brand presence shaped through clean visuals and memorable campaign applications.',
+
+    mainCampaign: 'Identity Rollout',
+    aboutTitle: 'Identity Rollout',
+    aboutText: 'Ghazva uses a strong visual direction across multiple assets to create a cohesive and recognizable brand experience.',
+
+    mockups: [
+      '/clients/ghazva/1.jpeg',
+      '/clients/ghazva/2.jpeg',
+      '/clients/ghazva/3.jpeg',
+      '/clients/ghazva/4.jpeg'
+    ]
+  },
+
+  {
+    id: '6',
+    name: 'Oaks',
+    coverImage: '/clients/oaks/1.jpeg',
+    industry: 'Brand Identity',
+    description: 'A refined identity system built with strong brand applications and clear visual consistency.',
+
+    mainCampaign: 'Designed Presence',
+    aboutTitle: 'Designed Presence',
+    aboutText: 'Oaks brings a polished visual language into brand materials, helping each application feel connected and intentional.',
+
+    mockups: [
+      '/clients/oaks/1.jpeg',
+      '/clients/oaks/2.jpeg',
+      '/clients/oaks/3.jpeg',
+      '/clients/oaks/4.jpeg',
+      '/clients/oaks/5.jpeg'
+    ]
+  },
+
+  {
+    id: '7',
+    name: 'Singularity',
+    coverImage: '/clients/singularity/1.jpeg',
+    industry: 'Brand Identity',
+    description: 'A modern identity direction with clean applications and a sharp visual system.',
+
+    mainCampaign: 'Future Form',
+    aboutTitle: 'Future Form',
+    aboutText: 'Singularity uses focused visuals and structured brand assets to create a contemporary identity across touchpoints.',
+
+    mockups: [
+      '/clients/singularity/1.jpeg',
+      '/clients/singularity/2.jpeg',
+      '/clients/singularity/3.jpeg',
+      '/clients/singularity/4.jpeg'
+    ]
   }
 
 ];
