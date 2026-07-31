@@ -16,7 +16,6 @@ const FadeImage: React.FC<FadeImageProps> = ({ wrapperClassName, className = '',
       {!isLoaded && (
         <div className={`absolute inset-0 animate-pulse ${hasTransparentBg ? 'bg-white/[0.03]' : 'bg-gradient-to-b from-white/[0.06] via-white/[0.02] to-transparent'}`} />
       )}
-      {!hasTransparentBg && <div className="absolute inset-0 bg-grid-white/[0.02] pointer-events-none z-10"></div>}
       <img
         {...props}
         onLoad={(event) => {
